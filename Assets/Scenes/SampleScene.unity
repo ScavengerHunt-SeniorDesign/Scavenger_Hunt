@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433406537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,10 +212,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noiseMapGeneration: {fileID: 433406540}
-  waves: []
-  levelScale: 0
-  neighborRadius: []
-  treePrefab: []
+  waves:
+  - seed: 3364
+    frequency: 1
+    amplitude: 1
+  - seed: 4554
+    frequency: 2
+    amplitude: 2
+  - seed: 6652
+    frequency: 4
+    amplitude: 4
+  levelScale: 10
+  neighborRadius:
+  - 2
+  treePrefab:
+  - {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
 --- !u!114 &433406542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,12 +239,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb894b9235e427429b8dc891dd139c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidthInTiles: 10
-  mapDepthInTiles: 10
-  tilePrefab: {fileID: 433406537}
+  mapWidthInTiles: 25
+  mapDepthInTiles: 25
+  tilePrefab: {fileID: 7249799527346747153, guid: 43db4631dbea34049a31b1ba2891922d, type: 3}
   centerVertexZ: 55
   maxDistanceZ: 55
-  treeGeneration: {fileID: 0}
+  treeGeneration: {fileID: 433406541}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6190,7 +6201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6337c7093fc8b45b106511a8b36739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuScreen: MainMenu
 --- !u!114 &3669732002507365901
 MonoBehaviour:
   m_ObjectHideFlags: 0
