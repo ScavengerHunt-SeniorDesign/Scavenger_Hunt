@@ -310,38 +310,54 @@ MonoBehaviour:
   - biomes:
     - name: desert
       color: {r: 0.6886792, g: 0.5206522, b: 0.13318795, a: 0}
+      index: 0
     - name: grassland
       color: {r: 0, g: 0.6226415, b: 0.012424316, a: 0}
+      index: 1
     - name: tundra
       color: {r: 0.75686276, g: 0.92941177, b: 1, a: 0}
+      index: 2
     - name: tundra
       color: {r: 0.75686276, g: 0.92941177, b: 1, a: 0}
+      index: 2
   - biomes:
     - name: savanna
       color: {r: 0.36019206, g: 0.6603774, b: 0.3333037, a: 0}
+      index: 3
     - name: savanna
       color: {r: 0.36078432, g: 0.65882355, b: 0.33333334, a: 0}
+      index: 3
     - name: forest
       color: {r: 0.026032407, g: 0.4245283, b: 0.07361596, a: 0}
+      index: 4
     - name: tundra
       color: {r: 0.75686276, g: 0.92941177, b: 1, a: 0}
+      index: 2
   - biomes:
     - name: rainforest
       color: {r: 0, g: 0.745283, b: 0.0023337714, a: 0}
+      index: 5
     - name: forest
       color: {r: 0.02745098, g: 0.42352942, b: 0.07450981, a: 0}
+      index: 4
     - name: forest
       color: {r: 0.02745098, g: 0.42352942, b: 0.07450981, a: 0}
+      index: 4
     - name: tundra
       color: {r: 0.75686276, g: 0.92941177, b: 1, a: 0}
+      index: 2
   - biomes:
     - name: rainforest
       color: {r: 0, g: 0.74509805, b: 0.003921569, a: 0}
+      index: 5
     - name: rainforest
       color: {r: 0, g: 0.74509805, b: 0.003921569, a: 0}
+      index: 5
     - name: tundra
       color: {r: 0.75686276, g: 0.92941177, b: 1, a: 0}
+      index: 2
     - name: tundra
       color: {r: 0.75686276, g: 0.92941177, b: 1, a: 0}
+      index: 2
   waterColor: {r: 0, g: 0.27450982, b: 0.6039216, a: 0}
   visualizationMode: 3

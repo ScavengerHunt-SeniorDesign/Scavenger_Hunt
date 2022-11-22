@@ -224,9 +224,19 @@ MonoBehaviour:
     amplitude: 4
   levelScale: 10
   neighborRadius:
+  - 1
   - 2
+  - 3
+  - 4
+  - 0
+  - 3
   treePrefab:
+  - {fileID: 188006, guid: c6b7fb383a3534b039692b5485b6e739, type: 3}
   - {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  - {fileID: 1620127765743722, guid: 843b23272532b354a9eeb8eff1a3385d, type: 3}
+  - {fileID: 1422005170140430, guid: 63eef4674656ca74387a4f9941957a02, type: 3}
+  - {fileID: 1448706080078302, guid: 2a2e3a627fb77e645a622dc2f8436684, type: 3}
+  - {fileID: 1907765426554200, guid: 92487f405f0aebc4499799308a089867, type: 3}
 --- !u!114 &433406542
 MonoBehaviour:
   m_ObjectHideFlags: 0
