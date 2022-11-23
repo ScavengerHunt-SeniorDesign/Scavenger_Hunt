@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -162,7 +162,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 433406539}
-  - component: {fileID: 433406538}
+  - component: {fileID: 433406542}
+  - component: {fileID: 433406541}
+  - component: {fileID: 433406540}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -170,23 +172,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &433406538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433406537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d7c8271677a4b429922531eb45872b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapWidthInTiles: 20
-  mapDepthInTiles: 20
-  tilePrefab: {fileID: 2534736687988372651, guid: 763f9b566541d344696edc13a818e5e1, type: 3}
-  centerVertexZ: 40
-  maxDistanceZ: 80
 --- !u!4 &433406539
 Transform:
   m_ObjectHideFlags: 0
@@ -195,13 +180,81 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433406537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &433406540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433406537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c01601a8f0fc04f8040b38137bede6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &433406541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433406537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1196321009788d44492f5c844b11b37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseMapGeneration: {fileID: 433406540}
+  waves:
+  - seed: 3364
+    frequency: 1
+    amplitude: 1
+  - seed: 4554
+    frequency: 2
+    amplitude: 2
+  - seed: 6652
+    frequency: 4
+    amplitude: 4
+  levelScale: 10
+  neighborRadius:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 0
+  - 3
+  treePrefab:
+  - {fileID: 188006, guid: c6b7fb383a3534b039692b5485b6e739, type: 3}
+  - {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  - {fileID: 1620127765743722, guid: 843b23272532b354a9eeb8eff1a3385d, type: 3}
+  - {fileID: 1422005170140430, guid: 63eef4674656ca74387a4f9941957a02, type: 3}
+  - {fileID: 1448706080078302, guid: 2a2e3a627fb77e645a622dc2f8436684, type: 3}
+  - {fileID: 1907765426554200, guid: 92487f405f0aebc4499799308a089867, type: 3}
+--- !u!114 &433406542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433406537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb894b9235e427429b8dc891dd139c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapWidthInTiles: 25
+  mapDepthInTiles: 25
+  tilePrefab: {fileID: 7249799527346747153, guid: 43db4631dbea34049a31b1ba2891922d, type: 3}
+  centerVertexZ: 55
+  maxDistanceZ: 55
+  treeGeneration: {fileID: 433406541}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,7 +6211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6337c7093fc8b45b106511a8b36739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuScreen: MainMenu
 --- !u!114 &3669732002507365901
 MonoBehaviour:
   m_ObjectHideFlags: 0
