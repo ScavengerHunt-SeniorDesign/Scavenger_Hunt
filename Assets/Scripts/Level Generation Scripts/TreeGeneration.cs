@@ -31,7 +31,7 @@ public class TreeGeneration : MonoBehaviour
 
     public void GenerateTrees(int mapDepth, int mapWidth, float distanceBetweenVertices, LevelData levelData)
     {
-        //Generate a tree noise map using Perlin Noise
+        // Generate a tree noise map using Perlin Noise
         float[,] treeMap = this.noiseMapGeneration.GeneratePerlinNoiseMap(mapDepth, mapWidth, this.levelScale, 0, 0, this.waves);
         float levelSizeX = mapWidth * distanceBetweenVertices;
         float levelSizeZ = mapDepth * distanceBetweenVertices;

@@ -77,6 +77,10 @@ public class LevelGeneration : MonoBehaviour {
 	[SerializeField]
 	private TreeGeneration treeGeneration;
 
+	//Field that allows us to implement item generation algorithm
+	[SerializeField]
+	private ItemGeneration itemGeneration;
+
 	// Runs when game is started
 	void Start() {
 		GenerateMap ();
@@ -115,5 +119,8 @@ public class LevelGeneration : MonoBehaviour {
 
 		// Generate trees for the level
 		treeGeneration.GenerateTrees(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+
+		// generate items for the level
+		itemGeneration.GenerateItems(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
 	}
 }
