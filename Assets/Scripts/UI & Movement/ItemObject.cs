@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
     public InventoryItemData referenceItem;
+    static SaveObject saveData;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class ItemObject : MonoBehaviour
         //upon being initialized, item is added to the scavenger hunt item list
         InventorySystem.instance.Add(referenceItem);
         Debug.Log("Item Add() Attempt");
+        
     }
 
     /// <summary>
@@ -23,6 +25,9 @@ public class ItemObject : MonoBehaviour
     {
         Debug.Log(referenceItem.displayName);
         InventorySystem.instance.Remove(referenceItem);
+        saveData = SaveManager.Load();
+        saveData.TimeElapsed = TimeManager.instance.GetElapsedTime();
+        SaveManager.Save(saveData);
         Destroy(gameObject);
     }
 }

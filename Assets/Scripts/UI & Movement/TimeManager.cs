@@ -9,19 +9,31 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
 
-    private static float InitialTime; //Time elapsed since Level (scene) has loaded
+    public static TimeManager instance = null;
 
-    public static float TotalTime; // Total time elapsed during gameplay
+    private static float InitialTime; 
+
+    public static float TimeSinceLoad; //Time elapsed since Level (scene) has loaded
 
     public SaveObject TimeData;
-    void Start()
+    void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
         TimeData = SaveManager.Load();
         InitialTime = Time.time;
     }
 
-    public static float GetElapsedTime()
+    private void Update()
     {
-        return Time.time - InitialTime;
+        TimeSinceLoad = Time.time - InitialTime;
+    }
+    public float GetElapsedTime()
+    {
+        return TimeSinceLoad + TimeData.TimeElapsed;
     }
 }
+
