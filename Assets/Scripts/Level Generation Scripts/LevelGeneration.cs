@@ -81,6 +81,10 @@ public class LevelGeneration : MonoBehaviour {
 	[SerializeField]
 	private ItemGeneration itemGeneration;
 
+	[SerializeField]
+	private PortalGeneration portalGeneration;
+
+
 	// Runs when game is started
 	void Start() {
 		GenerateMap ();
@@ -122,5 +126,8 @@ public class LevelGeneration : MonoBehaviour {
 
 		// generate items for the level
 		itemGeneration.GenerateItems(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+
+		// Generate portals for the level
+		portalGeneration.GeneratePortals(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
 	}
 }

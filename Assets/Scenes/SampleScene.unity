@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -584,6 +584,7 @@ GameObject:
   - component: {fileID: 433406541}
   - component: {fileID: 433406540}
   - component: {fileID: 433406543}
+  - component: {fileID: 433406544}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -675,6 +676,7 @@ MonoBehaviour:
   maxDistanceZ: 55
   treeGeneration: {fileID: 433406541}
   itemGeneration: {fileID: 433406543}
+  portalGeneration: {fileID: 433406544}
 --- !u!114 &433406543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +696,21 @@ MonoBehaviour:
   - {fileID: 4941510235368918253, guid: 8d749ced5f6bd2a4691e77446f1e3f36, type: 3}
   - {fileID: 3827857766726541499, guid: 9e96d05fd4ac44943b7202aa51dc849b, type: 3}
   - {fileID: 8631786625518728772, guid: cd8c85493b0f0294a96bf5b2494f1d04, type: 3}
+--- !u!114 &433406544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433406537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869cb8b7640096743ac867ff5d16de70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfPortals: 5
+  portalPrefab: {fileID: 907099289354577556, guid: 776f91348af53df479239fcef310bc8c, type: 3}
+  puzzleRoomPrefab: {fileID: 7113792512536576589, guid: f05cbb8ee4a693449a66b49b15168fb2, type: 3}
 --- !u!1001 &459718373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7758,7 +7775,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 4019381327055886213}
   m_HandleRect: {fileID: 4019381327008412665}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
