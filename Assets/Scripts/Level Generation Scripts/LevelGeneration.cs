@@ -61,8 +61,8 @@ public class TileCoordinate
 //Main Code
 public class LevelGeneration : MonoBehaviour {
 
-	//Field that allows us to change the size of the map
-	[SerializeField]
+	//Field that allows us to change the size of the map based on the difficulty selected in main menu *UPDATED: 11/29/22*
+	[HideInInspector]
 	private int mapWidthInTiles, mapDepthInTiles;
 
 	//Field that allows us to select the template we want to use to create the level
@@ -91,6 +91,37 @@ public class LevelGeneration : MonoBehaviour {
 	}
 
 	void GenerateMap() {
+		//NEWLY IMPLEMENTED
+		string msg = string.Format("Current Level Difficulty: {0}", DifficultyMenu.levelDifficulty); //Debug to make sure the level difficulty has transferred
+		Debug.Log(msg); //Send message to console
+
+
+		/* NEWLY IMPLEMENTED
+		Difficulty setting selected from the Main Menu will determine the map size via a switch function */
+		switch(DifficultyMenu.levelDifficulty)
+		{
+			case 0:
+				this.mapDepthInTiles = 5;
+				this.mapWidthInTiles = 5;
+				Debug.Log("Easy Mode: Map Size 5x5");
+				break;
+			case 1:
+				this.mapDepthInTiles = 15;
+				this.mapWidthInTiles = 15;
+				Debug.Log("Normal Mode: Map Size 15x15");
+				break;
+			case 2:
+				this.mapDepthInTiles = 30;
+				this.mapWidthInTiles = 30;
+				Debug.Log("Hard Mode: Map Size 30x30");
+				break;
+			default:
+				this.mapDepthInTiles = 20;
+				this.mapWidthInTiles = 20;
+				Debug.Log("Invaild Input Reverting to Default: Map Size 20x20");
+				break;
+		}
+
 		// Get the tile dimensions from the tile Prefab
 		Vector3 tileSize = tilePrefab.GetComponent<MeshRenderer> ().bounds.size;
 		int tileWidth = (int)tileSize.x;
