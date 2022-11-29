@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869cb8b7640096743ac867ff5d16de70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfPortals: 5
+  numberOfPortals: 2
   portalPrefab: {fileID: 907099289354577556, guid: 776f91348af53df479239fcef310bc8c, type: 3}
   puzzleRoomPrefab: {fileID: 7113792512536576589, guid: f05cbb8ee4a693449a66b49b15168fb2, type: 3}
 --- !u!1001 &459718373
@@ -10876,7 +10876,7 @@ MonoBehaviour:
   walkSpeed: 8
   variableJoystick: {fileID: 7051255096126085190}
   jumpButton: {fileID: 1055896640}
-  _isMobileDevice: 1
+  _isMobileDevice: 0
 --- !u!114 &6585650915813731994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10892,7 +10892,7 @@ MonoBehaviour:
   SensitivityX: 200
   SensitivityY: 200
   variableJoystick: {fileID: 7170995429014677209}
-  _isMobileDevice: 1
+  _isMobileDevice: 0
 --- !u!143 &6585650915813731995
 CharacterController:
   m_ObjectHideFlags: 0

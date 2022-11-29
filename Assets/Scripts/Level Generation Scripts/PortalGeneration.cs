@@ -50,6 +50,9 @@ public class PortalGeneration : MonoBehaviour
             Vector3 puzzleRoomPosition = new Vector3(75 + puzzleRoomOffset, -20, 115);
             GameObject puzzleRoom = Instantiate(this.puzzleRoomPrefab, puzzleRoomPosition, Quaternion.identity) as GameObject;
 
+            // set 
+            puzzleRoom
+
             puzzleRoomOffset += 10;
 
         }
