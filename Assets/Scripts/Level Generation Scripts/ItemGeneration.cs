@@ -40,8 +40,7 @@ public class ItemGeneration : MonoBehaviour
             // place randomly selected item at index
             Vector3 itemPosition = new Vector3(b * distanceBetweenVertices, meshVertices[vertexIndex].y, a * distanceBetweenVertices);
             GameObject item = Instantiate(this.itemPrefab[Random.Range(0, itemPrefab.Length)], itemPosition, Quaternion.identity) as GameObject;
-
-
+            item.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);      //Allows us to change the size of findable objects - Pedro
 
 
         }

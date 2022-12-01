@@ -84,9 +84,9 @@ public class TreeGeneration : MonoBehaviour
                     // If the current tree noise value is the maximum one, place a tree in this location
                     if(treeValue == maxValue)
                     {
-                        Vector3 treePosition = new Vector3(xIndex * distanceBetweenVertices, meshVertices[vertexIndex].y, zIndex * distanceBetweenVertices);
+                        Vector3 treePosition = new Vector3(xIndex * distanceBetweenVertices, meshVertices[vertexIndex].y - 0.04f, zIndex * distanceBetweenVertices);
                         GameObject tree = Instantiate(this.treePrefab[biome.index], treePosition, Quaternion.identity) as GameObject;
-                        tree.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);       // Allows us to change the size of the tree assets
+                        tree.transform.localScale = new Vector3(0.63f, 0.63f, 0.63f);       // Allows us to change the size of the tree assets
                     }
                 }
             }
