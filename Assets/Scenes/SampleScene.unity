@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -707,8 +707,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfPortals: 2
-  portalPrefab: {fileID: 907099289354577556, guid: 776f91348af53df479239fcef310bc8c, type: 3}
-  puzzleRoomPrefab: {fileID: 7113792512536576589, guid: f05cbb8ee4a693449a66b49b15168fb2, type: 3}
+  portalPrefab: {fileID: 1543439310520546434, guid: 6a7d592870777de4abeabd599e929a4a, type: 3}
+  puzzleRoomPrefab: {fileID: 6426487164463730443, guid: 0161ff34fbcc87d47b4998e9c62eecd6, type: 3}
+  player: {fileID: 6585650915813731992}
 --- !u!1001 &459718373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2432,7 +2433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3187170316576454337, guid: 8155c7b38ca9d7a438ac75316091ec0c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3187170316576454337, guid: 8155c7b38ca9d7a438ac75316091ec0c, type: 3}
       propertyPath: m_audioClip
@@ -10853,7 +10854,7 @@ GameObject:
   - component: {fileID: 6585650915813731993}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

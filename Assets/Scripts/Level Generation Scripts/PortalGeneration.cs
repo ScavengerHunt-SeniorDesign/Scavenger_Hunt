@@ -13,6 +13,9 @@ public class PortalGeneration : MonoBehaviour
     [SerializeField]
     private GameObject puzzleRoomPrefab;
 
+    [SerializeField]
+    private GameObject player;
+
     public void GeneratePortals(int mapDepth, int mapWidth, float distanceBetweenVertices, LevelData levelData)
     {
         var prevCoords = new List<(int, int)> {};
@@ -47,13 +50,20 @@ public class PortalGeneration : MonoBehaviour
             portal.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);       // Allows us to change the size of the portal assets
 
             // place corresponding puzzle room located away from map
-            Vector3 puzzleRoomPosition = new Vector3(75 + puzzleRoomOffset, -20, 115);
+            Vector3 puzzleRoomPosition = new Vector3(15 + puzzleRoomOffset, -20, 15);
             GameObject puzzleRoom = Instantiate(this.puzzleRoomPrefab, puzzleRoomPosition, Quaternion.identity) as GameObject;
 
-            // set 
-            puzzleRoom
+            // assign script values for map portal
+            PortalTeleporter portalScript = (PortalTeleporter)portal.transform.GetChild(2).GetComponent(typeof(PortalTeleporter));
+            PortalTeleporter puzzleRoomPortalScript = (PortalTeleporter)puzzleRoom.transform.GetChild(1).GetChild(4).GetComponent(typeof(PortalTeleporter));
+            Transform portalCollider = portal.transform.GetChild(2);
+            Transform puzzleRoomCollider = puzzleRoom.transform.GetChild(1).GetChild(4);
+            portalScript.player = player.transform;
+            portalScript.receiver = puzzleRoomCollider;
+            puzzleRoomPortalScript.player = player.transform;
+            puzzleRoomPortalScript.receiver = portalCollider;
 
-            puzzleRoomOffset += 10;
+            puzzleRoomOffset += 20;
 
         }
     }
