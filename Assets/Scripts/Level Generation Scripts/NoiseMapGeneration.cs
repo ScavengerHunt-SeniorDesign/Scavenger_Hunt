@@ -14,9 +14,19 @@ public class Wave
     public float amplitude;
 }
 
+
 // Main code
 public class NoiseMapGeneration : MonoBehaviour
 {
+
+	static float randomSeed;		//Variable will contain a random number generated
+
+    void Start()
+	{
+       randomSeed = Random.Range(1.0f, 9999.0f);	//Random number is stored
+    }
+
+
 	// Generates a non-uniform perlin noise map
 	public float[,] GeneratePerlinNoiseMap(int mapDepth, int mapWidth, float scale, float offsetX, float offsetZ, Wave[] waves)
 	{
@@ -33,12 +43,13 @@ public class NoiseMapGeneration : MonoBehaviour
 
 				float noise = 0f;
 				float normalization = 0f;
+
 				foreach (Wave wave in waves)
 				{
-					// Generating noise value using PerlinNoise for a given Wave
-					noise += wave.amplitude * Mathf.PerlinNoise (sampleX * wave.frequency + wave.seed, sampleZ * wave.frequency + wave.seed);
-					normalization += wave.amplitude;
-				}
+                    // Generating noise value using PerlinNoise for a given Wave **UPDATED** now with the addition of a seed modifier.
+                    noise += wave.amplitude * Mathf.PerlinNoise(sampleX * wave.frequency + wave.seed + randomSeed, sampleZ * wave.frequency + wave.seed + randomSeed);
+                    normalization += wave.amplitude;
+                }
 				// Normalizing the noise value so that it is within 0 and 1 float values
 				noise /= normalization;
 
