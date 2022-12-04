@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PuzzleManager : MonoBehaviour
 {
     public GameObject PipeHolder;
     public GameObject[] Pipes;
+    public GameObject Chest;
 
     [SerializeField]
     int totalPipes = 0;
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
         if (correctedPipes == totalPipes)
         {
             Debug.Log("You win!");
+            // open chest
+            Chest.GetComponent<Animator>().Play("Open");
+
+            //Animator = GameObject.Find("Open").GetComponent<Animator>();
+
         }
     }
 
