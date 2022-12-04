@@ -19,8 +19,7 @@ public class PipeScript : MonoBehaviour
     {
         puzzleManager = manager.GetComponent<PuzzleManager>();
         
-        // GetComponent<Animator>().Play("Open");
-        // puzzleManager = GetComponent<PuzzleMana
+        
     }
 
     private void Start()

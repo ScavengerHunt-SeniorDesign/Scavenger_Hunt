@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3525983094260683202}
   - component: {fileID: 3515163019641479956}
   - component: {fileID: 3493672576455531654}
-  - component: {fileID: 3502479109684681687}
+  - component: {fileID: 2514362584812745975}
   m_Layer: 0
   m_Name: Bonus Item
   m_TagString: Selectable
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3747552, y: 0.39132136, z: 0.363131}
   m_Center: {x: 0.000004775822, y: 0.015481941, z: -0.000023514032}
---- !u!114 &3502479109684681687
+--- !u!114 &2514362584812745975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3501779110828352346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00988753345a8ae49b52616da25b1b67, type: 3}
+  m_Script: {fileID: 11500000, guid: 03df2f041882025468b9010fa5d88d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: 52ef4943bac2a9b46bac6db3f7d2acda, type: 2}

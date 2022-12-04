@@ -7,6 +7,7 @@ public class PuzzleManager : MonoBehaviour
     public GameObject PipeHolder;
     public GameObject[] Pipes;
     public GameObject Chest;
+    public GameObject BonusItem;
 
     [SerializeField]
     int totalPipes = 0;
@@ -35,12 +36,21 @@ public class PuzzleManager : MonoBehaviour
         if (correctedPipes == totalPipes)
         {
             Debug.Log("You win!");
-            // open chest
-            Chest.GetComponent<Animator>().Play("Open");
 
-            //Animator = GameObject.Find("Open").GetComponent<Animator>();
+            StartCoroutine(chestEvent());
 
         }
+    }
+
+    // triggers chest animation then spawns item upon completion of animation
+    public IEnumerator chestEvent()
+    {
+        // open chest
+        Chest.GetComponent<Animator>().Play("Open");
+        yield return new WaitForSeconds(2.75f);
+
+        // spawn item above chest
+        Instantiate(BonusItem, new Vector3(Chest.transform.position.x, Chest.transform.position.y + .5f, Chest.transform.position.z), Chest.transform.rotation);
     }
 
     public void wrongMove()

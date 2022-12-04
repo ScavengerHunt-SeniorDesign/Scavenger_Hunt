@@ -17,6 +17,7 @@ public class ItemObject : MonoBehaviour
         Debug.Log("Item Add() Attempt");
         
     }
+    
 
     /// <summary>
     /// When an item is selected, it's data is removed from the InventorySystem and corresponding gameObject is destroyed

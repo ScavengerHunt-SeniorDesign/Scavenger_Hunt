@@ -56,6 +56,7 @@ MonoBehaviour:
   - {fileID: 6957338777840347782}
   - {fileID: 3248427155459803698}
   Chest: {fileID: 4377284625278880626}
+  BonusItem: {fileID: 3501779110828352346, guid: 0d65c6cabc96f4a4f8c951f6bc3cf970, type: 3}
   totalPipes: 0
 --- !u!1 &3994395395199663879
 GameObject:
