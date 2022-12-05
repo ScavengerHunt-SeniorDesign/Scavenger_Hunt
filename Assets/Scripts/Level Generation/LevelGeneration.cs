@@ -155,16 +155,36 @@ public class LevelGeneration : MonoBehaviour {
 			}
 		}
 
-		// Generate trees for the level
-		treeGeneration.GenerateTrees(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+		// Level will either be generated randomly or using SaveData based on MainMenu.isContinue value - Christian
 
-		// generate items for the level
-		itemGeneration.GenerateItems(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+		if (MainMenu.isContinue)
+		{
+			// Generate trees for the level
+			treeGeneration.GenerateTrees(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
 
-		// Generate portals for the level
-		portalGeneration.GeneratePortals(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+			// generate items for the level
+			itemGeneration.GenerateItemsFromSave();
 
-		// Generate music players for the level
-		musicGeneration.GenerateMusic(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+			// Generate portals for the level
+			portalGeneration.GeneratePortalsFromSave(distanceBetweenVertices, levelData);
+
+			// Generate music players for the level
+			musicGeneration.GenerateMusic(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+		}
+
+		else
+		{
+			// Generate trees for the level
+			treeGeneration.GenerateTrees(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+
+			// generate items for the level
+			itemGeneration.GenerateItems(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+
+			// Generate portals for the level
+			portalGeneration.GeneratePortals(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+
+			// Generate music players for the level
+			musicGeneration.GenerateMusic(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+		}
 	}
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
     public InventoryItemData referenceItem;
-    static SaveObject saveData;
 
     private void Start()
     {
@@ -26,9 +25,17 @@ public class ItemObject : MonoBehaviour
     {
         Debug.Log(referenceItem.displayName);
         InventorySystem.instance.Remove(referenceItem);
-        saveData = SaveManager.Load();
-        saveData.TimeElapsed = TimeManager.instance.GetElapsedTime();
-        SaveManager.Save(saveData);
+
+        //Remove item from save file
+        for (int i = 0; i < GameManager.SaveData.Items.Count; i++)
+        {
+            if (GameManager.SaveData.Items[i].objectID == gameObject.name)
+            {
+                GameManager.SaveData.Items.RemoveAt(i);
+            }
+        }
+
+        SaveManager.Save(GameManager.SaveData);
         Destroy(gameObject);
     }
 }

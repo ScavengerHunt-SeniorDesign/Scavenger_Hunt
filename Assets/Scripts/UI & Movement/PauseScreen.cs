@@ -41,6 +41,9 @@ public class PauseScreen : MonoBehaviour
                 Time.timeScale = 0;
                 isPaused = true;
 
+                //Save game
+                SaveManager.Save(GameManager.SaveData);
+
                 Cursor.lockState = CursorLockMode.None;
             }
             else
@@ -59,7 +62,7 @@ public class PauseScreen : MonoBehaviour
             }
             pauseButton.Clicked = false;
         }
-        float timeElapsed = TimeManager.instance.GetElapsedTime();
+        float timeElapsed = GameManager.SaveData.TimeElapsed;
         float timeLeft = _timeGoalMax - timeElapsed;
 
         string seconds = timeElapsed.ToString("0.00");

@@ -19,11 +19,24 @@ public class Wave
 public class NoiseMapGeneration : MonoBehaviour
 {
 
-	static float randomSeed;		//Variable will contain a random number generated
+	static float randomSeed;        //Variable will contain a random number generated
+
+	static int seedIndex = 0; //used to retrieve seeds from savedata - Christian
 
     void Start()
 	{
-       randomSeed = Random.Range(1.0f, 9999.0f);	//Random number is stored
+		//generate random seed if not continuing level, otherwise, load from SaveData - Christian
+		if (MainMenu.isContinue)
+		{
+			randomSeed = GameManager.SaveData.LevelSeeds[0];
+		}
+		else
+		{
+			randomSeed = Random.Range(1.0f, 9999.0f);   //Random number is stored
+
+			GameManager.SaveData.LevelSeeds.Add(randomSeed);
+			SaveManager.Save(GameManager.SaveData);
+		}
     }
 
 

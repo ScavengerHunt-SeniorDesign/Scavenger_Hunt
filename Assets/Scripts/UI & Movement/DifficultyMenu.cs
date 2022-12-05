@@ -25,6 +25,8 @@ public class DifficultyMenu : MonoBehaviour
     /// <param name="difficulty"> Level difficulty: ints 0, 1, 2 correspond to easy, medium, hard </param>
     public void SetDifficulty(int difficulty)
     {
+        MainMenu.isContinue = false; //level will generate without using save data - Christian
+
         levelDifficulty = difficulty;               //Save difficulty to global variable - Pedro
         SaveData.GameDifficulty = difficulty;
         SaveManager.Save(SaveData);

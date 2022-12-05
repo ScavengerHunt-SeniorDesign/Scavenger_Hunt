@@ -13,15 +13,14 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private GameObject _difficultyScreen;
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private GameObject _playScreen;
-    private SaveObject SaveData;
 
+    SaveObject NewSaveData;
    
 
     public void OpenEndScreen()
     {
         _endScreen.SetActive(true);
-        SaveData = SaveManager.Load();
-        string seconds = SaveData.TimeElapsed.ToString("0.00");
+        string seconds = GameManager.SaveData.TimeElapsed.ToString("0.00");
         elapsedTime.text = "Total Time Elapsed: " + seconds + "s";
         _playScreen.SetActive(false);
     }
@@ -41,8 +40,8 @@ public class EndScreen : MonoBehaviour
     public void SetDifficulty(int x)
     {
         // 0, 1, 2 correspond to easy, medium, hard respectively
-        SaveData.GameDifficulty = x;
-        SaveManager.Save(SaveData);
+        NewSaveData.GameDifficulty = x;
+        SaveManager.Save(NewSaveData);
     }
 
     public void StartGame()

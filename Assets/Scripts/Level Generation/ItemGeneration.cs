@@ -10,6 +10,8 @@ public class ItemGeneration : MonoBehaviour
     [SerializeField]
     private GameObject[] itemPrefab;
 
+    int objectID = 0; // used to uniquely identify each scavenger hunt item - Christian
+
     public void GenerateItems(int mapDepth, int mapWidth, float distanceBetweenVertices, LevelData levelData)
     {
         var prevCoords = new List<(int, int)> {};
@@ -38,16 +40,48 @@ public class ItemGeneration : MonoBehaviour
             prevCoords.Add((a, b));
 
             // place randomly selected item at index
+            // Altered so that random integer corresponding to prefab in array can be saved - Christian
             Vector3 itemPosition = new Vector3(b * distanceBetweenVertices, meshVertices[vertexIndex].y, a * distanceBetweenVertices);
-            GameObject item = Instantiate(this.itemPrefab[Random.Range(0, itemPrefab.Length)], itemPosition, Quaternion.identity) as GameObject;
+            int randomInt = Random.Range(0, itemPrefab.Length);
+            GameObject item = Instantiate(this.itemPrefab[randomInt], itemPosition, Quaternion.identity) as GameObject;
+
+            item.name = item.name + objectID; // Set unique name to be used as the GameObject's ID - Christian
+
+            // Save data is retrieved before overwriting with new scavenger hunt item data - Christian
+            ItemData ItemData = new ItemData(randomInt, item.name, itemPosition.x, itemPosition.y, itemPosition.z);
+            GameManager.SaveData.Items.Add(ItemData);
+
+
+            objectID++; //Increment Item ID to uniquely identify each GameObject - Christian
+
             item.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);      //Allows us to change the size of findable objects - Pedro
 
 
         }
 
-        
+        SaveManager.Save(GameManager.SaveData); //item data is saved after loop to reduce number of write cycles - Christian
 
 
+
+
+
+    }
+
+    public void GenerateItemsFromSave()
+    {
+
+        for (int i = 0; i < GameManager.SaveData.Items.Count; i++)
+        {
+            ItemData ItemData = GameManager.SaveData.Items[i];
+            Vector3 itemPosition = new Vector3(ItemData.xPos, ItemData.yPos, ItemData.zPos);
+            // instantiate item based on save data
+            GameObject item = Instantiate(this.itemPrefab[ItemData.prefabID], itemPosition, Quaternion.identity) as GameObject;
+
+            item.name = ItemData.objectID; // Set unique name to be used as the GameObject's ID - Christian
+
+            item.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);      //Allows us to change the size of findable objects - Pedro
+
+        }
 
     }
 }
