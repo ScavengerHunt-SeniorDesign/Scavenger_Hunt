@@ -84,6 +84,9 @@ public class LevelGeneration : MonoBehaviour {
 	[SerializeField]
 	private PortalGeneration portalGeneration;
 
+	[SerializeField]
+	private MusicGeneration musicGeneration;
+
 
 	// Runs when game is started
 	void Start() {
@@ -160,5 +163,8 @@ public class LevelGeneration : MonoBehaviour {
 
 		// Generate portals for the level
 		portalGeneration.GeneratePortals(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
+
+		// Generate music players for the level
+		musicGeneration.GenerateMusic(this.mapDepthInTiles * tileDepthInVertices, this.mapWidthInTiles * tileWidthInVertices, distanceBetweenVertices, levelData);
 	}
 }

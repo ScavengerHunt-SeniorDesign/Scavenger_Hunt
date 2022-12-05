@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 433406540}
   - component: {fileID: 433406543}
   - component: {fileID: 433406544}
+  - component: {fileID: 433406545}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -675,6 +676,7 @@ MonoBehaviour:
   treeGeneration: {fileID: 433406541}
   itemGeneration: {fileID: 433406543}
   portalGeneration: {fileID: 433406544}
+  musicGeneration: {fileID: 433406545}
 --- !u!114 &433406543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699b2d55ad9af354faaf7d17d9a1116b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfItems: 20
+  numberOfItems: 10
   itemPrefab:
   - {fileID: 4026679055865519547, guid: a6798cd55c52f1044bab36f09619888b, type: 3}
   - {fileID: 9068827555504287698, guid: 06a0330701fe17f4b95d8153a98c7f58, type: 3}
@@ -710,6 +712,23 @@ MonoBehaviour:
   portalPrefab: {fileID: 1543439310520546434, guid: 6a7d592870777de4abeabd599e929a4a, type: 3}
   puzzleRoomPrefab: {fileID: 6426487164463730443, guid: 0161ff34fbcc87d47b4998e9c62eecd6, type: 3}
   player: {fileID: 6585650915813731992}
+--- !u!114 &433406545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433406537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cad213fbea163046973f98b71faea27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicPlayerPrefab:
+  - {fileID: 8323918949585778050, guid: 1c16b424f47bec14994fa75c723df3ae, type: 3}
+  - {fileID: 8323918949585778050, guid: 5664719d2ca0dca47835ec95cb8a122a, type: 3}
+  - {fileID: 8323918949585778050, guid: a4a3942de8c26a244ac853e53a6f22df, type: 3}
+  - {fileID: 8323918949585778050, guid: 0de07e424ee5b144ba3f0e6a28786f6c, type: 3}
 --- !u!1001 &459718373
 PrefabInstance:
   m_ObjectHideFlags: 0

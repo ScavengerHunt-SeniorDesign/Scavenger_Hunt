@@ -50,7 +50,7 @@ public class PortalGeneration : MonoBehaviour
             portal.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);       // Allows us to change the size of the portal assets
 
             // place corresponding puzzle room located away from map
-            Vector3 puzzleRoomPosition = new Vector3(15 + puzzleRoomOffset, -20, 15);
+            Vector3 puzzleRoomPosition = new Vector3(15 + puzzleRoomOffset, -150, 15);
             GameObject puzzleRoom = Instantiate(this.puzzleRoomPrefab, puzzleRoomPosition, Quaternion.identity) as GameObject;
 
             // assign script values for map portal
