@@ -1,6 +1,9 @@
 
 # Instructions
 
+## Playing the Game
+
+The game executable to play on desktop can be found in the Desktop Executable file, please read the README file located in the folder for futher instructions on launching the game.
 
 ## Starting Off
 
