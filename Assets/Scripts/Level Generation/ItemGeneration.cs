@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemGeneration : MonoBehaviour
 {
-    [SerializeField]
+    [HideInInspector]
     private int numberOfItems;
 
     [SerializeField]
@@ -14,6 +14,23 @@ public class ItemGeneration : MonoBehaviour
 
     public void GenerateItems(int mapDepth, int mapWidth, float distanceBetweenVertices, LevelData levelData)
     {
+        // **UPDATE** Changes number of items based on the level difficulty selected - Pedro
+        switch(DifficultyMenu.levelDifficulty)
+        {
+            case 0:
+                numberOfItems = 10;
+                break;
+            case 1:
+                numberOfItems = 20;
+                break;
+            case 2:
+                numberOfItems = 30; 
+                break;
+            default:
+                numberOfItems = 25; 
+                break;
+        }
+
         var prevCoords = new List<(int, int)> {};
 
         for (int i = 0; i < numberOfItems; i++) 
@@ -41,7 +58,7 @@ public class ItemGeneration : MonoBehaviour
 
             // place randomly selected item at index
             // Altered so that random integer corresponding to prefab in array can be saved - Christian
-            Vector3 itemPosition = new Vector3(b * distanceBetweenVertices, meshVertices[vertexIndex].y, a * distanceBetweenVertices);
+            Vector3 itemPosition = new Vector3(b * distanceBetweenVertices, meshVertices[vertexIndex].y + 0.01f, a * distanceBetweenVertices);
             int randomInt = Random.Range(0, itemPrefab.Length);
             GameObject item = Instantiate(this.itemPrefab[randomInt], itemPosition, Quaternion.identity) as GameObject;
 
