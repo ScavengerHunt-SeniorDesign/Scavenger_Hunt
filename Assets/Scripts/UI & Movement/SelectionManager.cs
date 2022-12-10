@@ -41,6 +41,8 @@ public class SelectionManager : MonoBehaviour
             _selection = null;
         }
         var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+
+        //Debug.DrawRay(Camera.main.transform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0), Color.green);
         RaycastHit hit;
 
         //crosshairs become green when a selectable item IS in focus

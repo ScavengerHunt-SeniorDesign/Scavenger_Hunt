@@ -33,6 +33,8 @@ public class TimeManager : MonoBehaviour
         //Continously save elapsed time in temporary location
         TimeSinceLoad = Time.time - InitialTime;
         GameManager.SaveData.TimeElapsed = TimeSinceLoad + PreviousElapsedTime;
+
+
     }
 
 }

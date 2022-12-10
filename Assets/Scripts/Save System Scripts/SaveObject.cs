@@ -11,7 +11,7 @@ public class SaveObject
     public float TimeElapsed;
     public bool NewGame;
 
-    public PlayerData Player;
+    public PlayerData Player = new PlayerData(2f, 3f, 2f, 0f, 0f, 0f, 10f);
     public BonusItemData BonusItems;
     public List<PortalData> Portals = new List<PortalData>();
     public List<ItemData> Items = new List<ItemData>();

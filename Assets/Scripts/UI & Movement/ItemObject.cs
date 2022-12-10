@@ -7,6 +7,7 @@ public class ItemObject : MonoBehaviour
 {
     public InventoryItemData referenceItem;
 
+
     private void Start()
     {
         //GameObject.Find("Inventory");
@@ -37,5 +38,12 @@ public class ItemObject : MonoBehaviour
 
         SaveManager.Save(GameManager.SaveData);
         Destroy(gameObject);
+
+        //check if no more scavenger hunt items exist - Christian
+        if(GameManager.SaveData.Items.Count == 0)
+        {
+            //if all items have been found, trigger end - Christian
+            GameManager.isEndGame = true;
+        }
     }
 }

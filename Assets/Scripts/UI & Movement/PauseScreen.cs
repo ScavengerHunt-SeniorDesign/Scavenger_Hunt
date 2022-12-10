@@ -19,14 +19,24 @@ public class PauseScreen : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _timeElapsed;
     [SerializeField] private Slider _timeSlider;
-    [SerializeField] private float _timeGoalMax;
     [SerializeField] private TextMeshProUGUI _timeleft;
+
+    [SerializeField] private GameObject timeIntervalPrefab;
+
+    [SerializeField] private GameObject intervalContainer;
 
     public FixedButton pauseButton;
 
     public void Start()
     {
-        _timeSlider.maxValue = _timeGoalMax;
+        _timeSlider.maxValue = GameManager.instance._timeGoalMax;
+
+        //create time left bar intervals
+        for(int i = 0; i < GameManager.instance._timeGoalIntervals - 1; i++)
+        {
+            GameObject obj = Instantiate(timeIntervalPrefab);
+            obj.transform.SetParent(intervalContainer.transform, false);
+        }
     }
 
     public void Update()
@@ -63,7 +73,7 @@ public class PauseScreen : MonoBehaviour
             pauseButton.Clicked = false;
         }
         float timeElapsed = GameManager.SaveData.TimeElapsed;
-        float timeLeft = _timeGoalMax - timeElapsed;
+        float timeLeft = GameManager.instance._timeGoalMax - timeElapsed;
 
         string seconds = timeElapsed.ToString("0.00");
         _timeElapsed.text = "Time Elapsed: " + seconds + "s";
@@ -76,7 +86,7 @@ public class PauseScreen : MonoBehaviour
         }
         else
         {
-            _timeSlider.value = _timeGoalMax;
+            _timeSlider.value = GameManager.instance._timeGoalMax;
             _timeleft.text = "Time Left: 0.00s";
         }
     }

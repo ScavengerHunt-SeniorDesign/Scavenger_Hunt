@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _mainMenuScreen;
 
     [SerializeField] private string _mainLevel;
-    public SaveObject SaveData;
 
     public static bool isContinue; //used during level generation to determine whether to use save data for generation - Christian
 
@@ -33,12 +32,7 @@ public class MainMenu : MonoBehaviour
     public void OpenDifficulty()
     {
         //TODO: DIsplay a warning message if a level is in progress
-        SaveData = SaveManager.Load();
 
-        if (SaveData.NewGame == false)
-        {
-
-        }
 
         _mainMenuScreen.SetActive(false);
         _difficultyScreen.SetActive(true);
