@@ -8,6 +8,9 @@ public static class SaveManager
     //file name to be used to save data
     public static string fileName = "MyData.txt";
 
+    //password used to encrypt/decrypt
+    private static string password = "0198oifnvz9283ruf9824hgeapwop8p23";
+
     /// <summary>
     /// Public fields are saved in JSON format in a text file under the persistentDataPath + directory path
     /// </summary>
@@ -21,8 +24,10 @@ public static class SaveManager
 
         //JSON generated from public fields of object
         string json = JsonUtility.ToJson(so);
-        //JSON is saved
-        File.WriteAllText(dir + fileName, json);
+
+        //JSON is encrypted and saved
+        //File.WriteAllText(dir + fileName, json);
+        AESEncryptor.Encrypt(json, password, dir + fileName);
     }
 
     public static SaveObject Load()
@@ -32,7 +37,7 @@ public static class SaveManager
 
         if (File.Exists(fullPath))
         {
-            string json = File.ReadAllText(fullPath);
+            string json = AESEncryptor.Decrypt(fullPath, password);
             so = JsonUtility.FromJson<SaveObject>(json);
 
         }

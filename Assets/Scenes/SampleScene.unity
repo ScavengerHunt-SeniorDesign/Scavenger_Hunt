@@ -689,7 +689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699b2d55ad9af354faaf7d17d9a1116b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfItems: 10
   itemPrefab:
   - {fileID: 4026679055865519547, guid: a6798cd55c52f1044bab36f09619888b, type: 3}
   - {fileID: 9068827555504287698, guid: 06a0330701fe17f4b95d8153a98c7f58, type: 3}
@@ -5230,6 +5229,7 @@ GameObject:
   - component: {fileID: 3669732002507365903}
   - component: {fileID: 3669732002507365902}
   - component: {fileID: 3669732002507366129}
+  - component: {fileID: 3669732002507366130}
   m_Layer: 5
   m_Name: Level UI Canvas
   m_TagString: Untagged
@@ -5253,6 +5253,21 @@ MonoBehaviour:
   _playScreenCanvas: {fileID: 3669732003316287705}
   itemButton: {fileID: 2612381426572259678}
   itemButtonText: {fileID: 2612381427082468224}
+--- !u!114 &3669732002507366130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669732002507366128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a6443a4c9a74c40aa4de1dad64c4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyCanvas: {fileID: 3995381211575757337}
+  _mainMenuCanvas: {fileID: 3669732003092717172}
+  _mainLevel: SampleScene
 --- !u!223 &3669732002529016744
 Canvas:
   m_ObjectHideFlags: 0
@@ -12678,8 +12693,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3669732002507365901}
-        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
+      - m_Target: {fileID: 3669732002507366130}
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
         m_MethodName: SetDifficulty
         m_Mode: 3
         m_Arguments:
@@ -12690,9 +12705,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3669732002507365901}
-        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 3669732002507366130}
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12824,8 +12839,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3669732002507365901}
-        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
+      - m_Target: {fileID: 3669732002507366130}
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
         m_MethodName: SetDifficulty
         m_Mode: 3
         m_Arguments:
@@ -12836,9 +12851,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3669732002507365901}
-        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 3669732002507366130}
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12970,8 +12985,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3669732002507365901}
-        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
+      - m_Target: {fileID: 3669732002507366130}
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
         m_MethodName: SetDifficulty
         m_Mode: 3
         m_Arguments:
@@ -12982,9 +12997,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3669732002507365901}
-        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 3669732002507366130}
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

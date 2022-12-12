@@ -19,7 +19,6 @@ public class EndScreen : MonoBehaviour
 
     [SerializeField] private GameObject scoreArea;
 
-    SaveObject NewSaveData;
 
     private void Update()
     {
@@ -32,6 +31,7 @@ public class EndScreen : MonoBehaviour
 
     public void OpenEndScreen()
     {
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
         _endScreen.SetActive(true);
         string seconds = GameManager.SaveData.TimeElapsed.ToString("0.00");
@@ -63,7 +63,6 @@ public class EndScreen : MonoBehaviour
 
     }
 
-
     public void QuitToMain()
     {
         SceneManager.LoadScene(_mainMenu);
@@ -73,17 +72,5 @@ public class EndScreen : MonoBehaviour
     {
         _difficultyScreen.SetActive(true);
         _endScreen.SetActive(false);
-    }
-
-    public void SetDifficulty(int x)
-    {
-        // 0, 1, 2 correspond to easy, medium, hard respectively
-        NewSaveData.GameDifficulty = x;
-        SaveManager.Save(NewSaveData);
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene(_mainLevel);
     }
 }
