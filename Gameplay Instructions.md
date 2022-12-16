@@ -40,6 +40,12 @@ picking up bonus item from chest : move target reticle over item and press selec
 picking up bonus item from chest : move cursor over puzzle piece and click
 
 
+## Saving and Continuing
+
+Game progress is saved periodically and after actions such as picking up an item and accessing the pause screen.
+You may return back to an unfinished game by pressing "Continue" via the main menu.
+
+
 ## Objectives of the Game
 
 Your goal is to find all the items listed at the bottom of the screen in your item bar. When you pick up an item it
