@@ -13,19 +13,55 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private GameObject _difficultyScreen;
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private GameObject _playScreen;
-    private SaveObject SaveData;
+    [SerializeField] private GameObject _itemScreen;
+    [SerializeField] private GameObject victoryStarPrefab;
+    [SerializeField] private GameObject nullStarPrefab;
 
-   
+    [SerializeField] private GameObject scoreArea;
+
+
+    private void Update()
+    {
+        if (GameManager.isEndGame)
+        {
+            OpenEndScreen();
+            GameManager.isEndGame = false;
+        }
+    }
 
     public void OpenEndScreen()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
         _endScreen.SetActive(true);
-        SaveData = SaveManager.Load();
-        string seconds = SaveData.TimeElapsed.ToString("0.00");
+        string seconds = GameManager.SaveData.TimeElapsed.ToString("0.00");
         elapsedTime.text = "Total Time Elapsed: " + seconds + "s";
         _playScreen.SetActive(false);
-    }
+        _itemScreen.SetActive(false);
 
+
+        // instantiate star objects in score field
+        int numStars = GameManager.instance._timeGoalIntervals;
+        float timeInterval = GameManager.instance._timeGoalMax / GameManager.instance._timeGoalIntervals;
+        int score = (int) ((GameManager.instance._timeGoalMax - GameManager.SaveData.TimeElapsed + timeInterval) / timeInterval);
+        
+        
+        for (int i = 0; i < score; i++)
+        {
+            GameObject obj = Instantiate(victoryStarPrefab);
+            obj.transform.SetParent(scoreArea.transform, false);
+            numStars--;
+        }
+        while(numStars > 0)
+        {
+            GameObject obj = Instantiate(nullStarPrefab);
+            obj.transform.SetParent(scoreArea.transform, false);
+            numStars--;
+        }
+
+
+
+    }
 
     public void QuitToMain()
     {
@@ -36,17 +72,5 @@ public class EndScreen : MonoBehaviour
     {
         _difficultyScreen.SetActive(true);
         _endScreen.SetActive(false);
-    }
-
-    public void SetDifficulty(int x)
-    {
-        // 0, 1, 2 correspond to easy, medium, hard respectively
-        SaveData.GameDifficulty = x;
-        SaveManager.Save(SaveData);
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene(_mainLevel);
     }
 }

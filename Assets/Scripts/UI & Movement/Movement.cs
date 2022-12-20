@@ -68,4 +68,9 @@ public class Movement : MonoBehaviour
 
 
     }
+
+    public void increaseWalkSpeed(int increase) 
+    {
+        walkSpeed += increase;
+    }
 }

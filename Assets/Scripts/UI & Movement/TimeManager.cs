@@ -15,25 +15,27 @@ public class TimeManager : MonoBehaviour
 
     public static float TimeSinceLoad; //Time elapsed since Level (scene) has loaded
 
-    public SaveObject TimeData;
-    void Awake()
+    public static float PreviousElapsedTime; //Time elapsed in previous game session
+
+    void Start()
     {
         if (instance == null)
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
 
-        TimeData = SaveManager.Load();
         InitialTime = Time.time;
+        PreviousElapsedTime = GameManager.SaveData.TimeElapsed;
     }
 
     private void Update()
     {
+        //Continously save elapsed time in temporary location
         TimeSinceLoad = Time.time - InitialTime;
+        GameManager.SaveData.TimeElapsed = TimeSinceLoad + PreviousElapsedTime;
+
+
     }
-    public float GetElapsedTime()
-    {
-        return TimeSinceLoad + TimeData.TimeElapsed;
-    }
+
 }
 

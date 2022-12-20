@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
     public InventoryItemData referenceItem;
-    static SaveObject saveData;
+
 
     private void Start()
     {
@@ -17,6 +17,7 @@ public class ItemObject : MonoBehaviour
         Debug.Log("Item Add() Attempt");
         
     }
+    
 
     /// <summary>
     /// When an item is selected, it's data is removed from the InventorySystem and corresponding gameObject is destroyed
@@ -25,9 +26,24 @@ public class ItemObject : MonoBehaviour
     {
         Debug.Log(referenceItem.displayName);
         InventorySystem.instance.Remove(referenceItem);
-        saveData = SaveManager.Load();
-        saveData.TimeElapsed = TimeManager.instance.GetElapsedTime();
-        SaveManager.Save(saveData);
+
+        //Remove item from save file
+        for (int i = 0; i < GameManager.SaveData.Items.Count; i++)
+        {
+            if (GameManager.SaveData.Items[i].objectID == gameObject.name)
+            {
+                GameManager.SaveData.Items.RemoveAt(i);
+            }
+        }
+
+        SaveManager.Save(GameManager.SaveData);
         Destroy(gameObject);
+
+        //check if no more scavenger hunt items exist - Christian
+        if(GameManager.SaveData.Items.Count == 0)
+        {
+            //if all items have been found, trigger end - Christian
+            GameManager.isEndGame = true;
+        }
     }
 }
